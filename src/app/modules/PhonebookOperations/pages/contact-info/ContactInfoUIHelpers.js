@@ -5,14 +5,16 @@ export const sizePerPageList = [
   { text: "50", page: 50 },
   { text: "100", page: 100 }
 ];
+export const FilterOptions = [
+  { value: null, label: "Tümü" }
+];
 export const initialFilter = {
   filter: {
-    name: "",
-    surname: "",
-    firm: ""
+    infoType: null,
+    info: ""
   },
   sortOrder: "asc", // asc||desc
-  sortField: "name",
+  sortField: "infoType",
   pageNumber: 1,
   pageSize: 10
 };

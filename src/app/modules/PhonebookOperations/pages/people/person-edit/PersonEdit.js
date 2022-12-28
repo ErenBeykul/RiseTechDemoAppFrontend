@@ -53,10 +53,14 @@ export function PersonEdit({
     }
   };
   
+  let title = "Kişi";
+  let action = id ? "Düzenle" : "Ekle";
+  title = title + " " + action;
+
   return (
     <Card>
       {actionsLoading && <ModalProgressBar />}
-      <CardHeader title="Kişi Ekle" />
+      <CardHeader title={title} />
       <CardBody>
         <div className="mt-5">          
           <PersonEditForm 

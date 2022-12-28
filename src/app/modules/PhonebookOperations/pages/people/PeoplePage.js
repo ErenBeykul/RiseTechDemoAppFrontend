@@ -7,6 +7,9 @@ export function PeoplePage({ history }) {
     openNewPersonPage: () => {
       history.push("/kisiler/ekle");
     },
+    openContactInfoPage: (id) => {
+      history.push(`/iletisim-bilgileri/${id}`);
+    },
     openEditPersonPage: (id) => {
       history.push(`/kisiler/duzenle/${id}`);
     },
