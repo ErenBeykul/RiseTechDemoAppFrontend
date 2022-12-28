@@ -24,6 +24,7 @@ export function PeopleTable({ deletePeople }) {
       setIds: peopleUIContext.setIds,
       queryParams: peopleUIContext.queryParams,
       setQueryParams: peopleUIContext.setQueryParams,
+      openContactInfoPage: peopleUIContext.openContactInfoPage,
       openEditPersonPage: peopleUIContext.openEditPersonPage
     };
   }, [peopleUIContext]);
@@ -43,6 +44,7 @@ export function PeopleTable({ deletePeople }) {
     peopleUIProps.setIds([]);
     // ...
     dispatch(actions.getPeople(peopleUIProps.queryParams));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [peopleUIProps.queryParams, dispatch]);
 
   // Table columns
@@ -70,15 +72,16 @@ export function PeopleTable({ deletePeople }) {
       text: "İşlemler",
       formatter: columnFormatters.ActionsColumnFormatter,
       formatExtraData: {
+        openContactInfoPage: peopleUIProps.openContactInfoPage,
         openEditPersonPage: peopleUIProps.openEditPersonPage,
         deletePeople
       },
       classes: "text-right pr-0",
-      headerClasses: "text-right pr-3",
+      headerClasses: "text-right pr-9",
       style: {
         minWidth: "100px",
       },
-    },
+    }
   ];
 
   // Table pagination properties

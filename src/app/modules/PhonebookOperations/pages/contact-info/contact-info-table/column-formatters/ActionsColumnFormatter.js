@@ -8,29 +8,15 @@ export const ActionsColumnFormatter = (
   cellContent,
   row,
   rowIndex,
-  { openContactInfoPage, openEditPersonPage, deletePeople }
+  { openEditContactInfoPage, deleteContactInfo }
 ) => (
   <>
     <OverlayTrigger
-      overlay={<Tooltip id="person-contact-info-tooltip">İletişim Bilgileri</Tooltip>}
-    >
-      <a
-        className="btn btn-icon btn-light btn-hover-primary btn-sm"
-        onClick={() => openContactInfoPage(row.id)}
-      >
-        <span className="svg-icon svg-icon-md svg-icon-primary">
-          <SVG
-            src={toAbsoluteUrl("/media/svg/icons/Text/Article.svg")}
-          />
-        </span>
-      </a>
-    </OverlayTrigger>
-    <OverlayTrigger
-      overlay={<Tooltip id="person-edit-tooltip">Düzenle</Tooltip>}
+      overlay={<Tooltip id="person-contact-info-edit-tooltip">Düzenle</Tooltip>}
     >
       <a
         className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
-        onClick={() => openEditPersonPage(row.id)}
+        onClick={() => openEditContactInfoPage(row.id)}
       >
         <span className="svg-icon svg-icon-md svg-icon-primary">
           <SVG
@@ -40,11 +26,11 @@ export const ActionsColumnFormatter = (
       </a>
     </OverlayTrigger>
     <OverlayTrigger
-       overlay={<Tooltip id="person-delete-tooltip">Sil</Tooltip>}
-     >
+      overlay={<Tooltip id="person-contact-info-delete-tooltip">Sil</Tooltip>}
+    >
       <a
         className="btn btn-icon btn-light btn-hover-danger btn-sm"
-        onClick={() => deletePeople(row.id)}
+        onClick={() => deleteContactInfo(row.id)}
       >
         <span className="svg-icon svg-icon-md svg-icon-danger">
           <SVG src={toAbsoluteUrl("/media/svg/icons/General/Trash.svg")} />

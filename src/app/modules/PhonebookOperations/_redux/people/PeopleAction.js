@@ -4,6 +4,7 @@ import { callTypes, peopleSlice } from "./PeopleSlice";
 const {actions} = peopleSlice;
 
 export const getPeople = queryParams => dispatch => {
+  dispatch(actions.startCall({ callType: callTypes.list }));
   return requestFromServer
     .getPeople(queryParams)
     .then(response => {

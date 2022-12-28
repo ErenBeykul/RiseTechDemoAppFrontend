@@ -43,6 +43,7 @@ export function AsideMenuList({ layoutProps }) {
                   <span className="menu-text">Rehber İşlemleri</span>
                 </span>
               </li>
+
               {/*begin::2 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
@@ -55,6 +56,22 @@ export function AsideMenuList({ layoutProps }) {
                     <span />
                   </i>
                   <span className="menu-text">Kişiler</span>
+                </NavLink>
+              </li>
+              {/*end::2 Level*/}
+
+              {/*begin::2 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/kisiler"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink className="menu-link" to="/kisiler">
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Raporlar</span>
                 </NavLink>
               </li>
               {/*end::2 Level*/}

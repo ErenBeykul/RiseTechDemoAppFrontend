@@ -1,16 +1,17 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
 import { isEqual, isFunction } from "lodash";
-import { initialFilter } from "./PeopleUIHelpers";
+import { initialFilter } from "./ContactInfoUIHelpers";
 
-const PeopleUIContext = createContext();
+const ContactInfoUIContext = createContext();
 
-export function usePeopleUIContext() {
-  return useContext(PeopleUIContext);
+export function useContactInfoUIContext() {
+  return useContext(ContactInfoUIContext);
 }
 
-export const PeopleUIConsumer = PeopleUIContext.Consumer;
+export const ContactInfoUIConsumer = ContactInfoUIContext.Consumer;
 
-export function PeopleUIProvider({ peopleUIEvents, children }) {
+export function ContactInfoUIProvider({ personId, contactInfoUIEvents, children }) {  
+  initialFilter.filter.personId = personId; // Şahıs Id Atanıyor
   const [queryParams, setQueryParamsBase] = useState(initialFilter);
   const [ids, setIds] = useState([]);
   const setQueryParams = useCallback((nextQueryParams) => {
@@ -33,14 +34,14 @@ export function PeopleUIProvider({ peopleUIEvents, children }) {
     ids,
     setIds,
     setQueryParams,
-    openContactInfoPage: peopleUIEvents.openContactInfoPage,
-    openNewPersonPage: peopleUIEvents.openNewPersonPage,
-    openEditPersonPage: peopleUIEvents.openEditPersonPage
+    openPersonListPage: contactInfoUIEvents.openPersonListPage,
+    openNewContactInfoPage: contactInfoUIEvents.openNewContactInfoPage,
+    openEditContactInfoPage: contactInfoUIEvents.openEditContactInfoPage
   };
 
   return (
-    <PeopleUIContext.Provider value={value}>
+    <ContactInfoUIContext.Provider value={value}>
       {children}
-    </PeopleUIContext.Provider>
+    </ContactInfoUIContext.Provider>
   );
 }
