@@ -5,6 +5,7 @@ import { ContactInfoEdit } from "./modules/PhonebookOperations/pages/contact-inf
 import { ContactInfoPage } from "./modules/PhonebookOperations/pages/contact-info/ContactInfoPage";
 import { PeoplePage } from "./modules/PhonebookOperations/pages/people/PeoplePage";
 import { PersonEdit } from "./modules/PhonebookOperations/pages/people/person-edit/PersonEdit";
+import { ReportsPage } from "./modules/PhonebookOperations/pages/reports/ReportsPage";
 
 export default function BasePage() {
   // useEffect(() => {
@@ -25,6 +26,7 @@ export default function BasePage() {
         <ContentRoute path="/kisiler/duzenle/:id" component={PersonEdit} />
         <ContentRoute path="/kisiler/ekle" component={PersonEdit} />
         <ContentRoute path="/kisiler" component={PeoplePage} />
+        <ContentRoute path="/raporlar" component={ReportsPage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>
